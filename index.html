@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>My E-commerce Store</title>
+<style>
+body {
+  font-family: Arial, sans-serif;
+  margin: 0;
+  background: #f5f5f5;
+}
+
+header {
+  background: #333;
+  color: white;
+  padding: 0.5em 1em;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5em;
+}
+
+header img {
+  height: 40px;
+}
+
+header input {
+  padding: 0.5em;
+  flex: 1;
+  min-width: 150px;
+}
+
+/* Shortcut Bar */
+.shortcut-bar {
+  display: flex;
+  gap: 0.5em;
+}
+
+.shortcut-bar a {
+  text-decoration: none;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  font-size: 0.7em;
+}
+
+.shortcut-box {
+  background: #222;
+  padding: 0.4em;
+  border-radius: 6px;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.shortcut-box img {
+  width: 24px;
+  height: 24px;
+}
+
+/* Cart link styling */
+.cart-link {
+  color: white;
+  text-decoration: none;
+}
+
+/* Carousel styles */
+.carousel {
+  position: relative;
+  width: 100%;
+  max-width: 1000px;
+  margin: auto;
+  overflow: hidden;
+  border-radius: 8px;
+  margin-top: 10px;
+}
+
+.carousel img {
+  width: 80%;
+  max-height: 300px;
+  object-fit: contain;
+  display: none;
+  background: #fff;
+}
+
+.carousel img.active {
+  display: block;
+}
+
+/* Category icons */
+.category-scroll {
+  display: flex;
+  overflow-x: auto;
+  gap: 1em;
+  padding: 1em;
+  background: white;
+}
+
+.category-item {
+  flex: 0 0 auto;
+  text-align: center;
+  width: 80px;
+}
+
+.category-item img {
+  width: 60px;
+  height: 60px;
+  object-fit: cover;
+  border-radius: 50%;
+  border: 1px solid #ccc;
+}
+
+.category-item p {
+  font-size: 0.8em;
+  margin-top: 0.3em;
+}
+
+/* Product grid */
+.product-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr); /* exactly 6 columns */
+  gap: 1em;
+  padding: 1em;
+}
+
+
+.product-card {
+  background: white;
+  border-radius: 6px;
+  padding: 1em;
+  text-align: center;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+}
+
+.product-card img {
+  width: 100%;
+  height: 180px;
+  object-fit: cover;
+  border-radius: 4px;
+}
+
+.product-card h3 {
+  font-size: 1em;
+  margin: 0.5em 0 0.3em;
+}
+
+.product-card p {
+  color: green;
+  margin: 0.3em 0;
+  font-weight: bold;
+}
+
+.product-card button {
+  background: #00bcd4;
+  color: white;
+  border: none;
+  padding: 0.4em 1em;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+</style>
+
+
+</head>
+<body>
+
+<header>
+  <!-- SVG Logo -->
+  <svg width="160" height="40" viewBox="0 0 240 60" xmlns="http://www.w3.org/2000/svg">
+    <!-- Icon -->
+    <rect x="5" y="5" width="50" height="50" rx="8" ry="8" fill="#00bcd4"/>
+    <path d="M20 20 h20 v20 h-20 z" fill="white"/>
+    <path d="M25 25 h10 v10 h-10 z" fill="#00bcd4"/>
+    <!-- Text -->
+    <text x="75" y="37"
+          font-family="Segoe UI, Tahoma, Geneva, Verdana, sans-serif"
+          font-size="30"
+          fill="#00BFFF"
+    font-weight="bold">ShopNest</text>
+  </svg>
+
+  <input type="text" placeholder="Search products..." id="searchBox"/>
+
+  <div class="shortcut-bar">
+    <a href="#">
+      <div class="shortcut-box">
+        <img src="all.jpg" alt="All in One"/>
+      </div>
+      <span>All in One</span>
+    </a>
+    <a href="#">
+      <div class="shortcut-box">
+        <img src="https://img.icons8.com/color/48/paypal.png" alt="Pay"/>
+      </div>
+      <span>Pay</span>
+    </a>
+    <a href="#">
+      <div class="shortcut-box">
+        <img src="https://img.icons8.com/color/48/airport.png" alt="Travel"/>
+      </div>
+      <span>Travel</span>
+    </a>
+    <a href="#">
+      <div class="shortcut-box">
+        <img src="https://img.icons8.com/color/48/shopping-cart.png" alt="Grocery"/>
+      </div>
+      <span>Grocery</span>
+    </a>
+  </div>
+
+  <a href="#" class="cart-link">🛒 Cart</a>
+</header>
+
+<!-- Top Shortcut Bar -->
+
+
+
+
+<!-- Updated Auto-rotating Carousel (One image at a time) -->
+ 
+<div class="carousel">
+  <img src="Galaxy-S26-Ultra.jpg" alt="Ad 1" class="active">
+  <img src="llyod.png" alt="Ad 2">
+  <img src="deo.avif" alt="Ad 3">
+  <img src="oneplus.jpg" alt="Ad 4">
+  <img src="mac.jpg" alt="Ad 5">
+  <img src="sony.jpg" alt="Ad 6">
+
+</div>
+
+
+<!-- Category Horizontal Scroll -->
+
+<div class="category-scroll">
+  <div class="category-item">
+    <img src="grocery.jpg" alt="Grocery">
+    <p>Grocery</p>
+  </div>
+  <div class="category-item">
+    <img src="fashion.avif" alt="Fashion">
+    <p>Fashion</p>
+  </div>
+  <div class="category-item">
+    <img src="f&h.jpg" alt="Food & Health">
+    <p>Food & Health</p>
+  </div>
+  <div class="category-item">
+    <img src="gadgets.avif" alt="Gadgets">
+    <p>Gadgets</p>
+  </div>
+  <div class="category-item">
+    <img src="toys.jpg" alt="Toys">
+    <p>Toys</p>
+  </div>
+  <div class="category-item">
+    <img src="beauty.avif" alt="Beauty">
+    <p>Beauty</p>
+  </div>
+  <div class="category-item">
+    <img src="ilectronics.jpg" alt="Electronics">
+    <p>Electronics</p>
+  </div>
+  <div class="category-item">
+    <img src="car.avif" alt="Auto">
+    <p>Auto</p>
+  </div>
+  <div class="category-item">
+    <img src="appliances.jpg" alt="Appliances">
+    <p>Appliances</p>
+  </div>
+  <div class="category-item">
+    <img src="mobiles.webp" alt="Mobiles">
+    <p>Mobiles</p>
+  </div>
+  <div class="category-item">
+    <img src="deos.jpg" alt="Deos">
+    <p>Deos</p>
+  </div>
+  <div class="category-item">
+    <img src="shoes.jpg" alt="Shoes">
+    <p>Shoes</p>
+  </div>
+  <div class="category-item">
+    <img src="dryfruits.jpg" alt="Dry Fruits">
+    <p>Dry Fruits</p>
+  </div>
+  <div class="category-item">
+    <img src="dress.webp" alt="Dresses">
+    <p>Dresses</p>
+  </div>
+  <div class="category-item">
+    <img src="scan.jpg" alt="Scan & Pay">
+    <p>Scan & Pay</p>
+  </div>
+  
+</div>
+
+<!-- Product Listing Grid -->
+<h2 style="padding:1em 0 0 1em;">Featured Products</h2>
+
+<div class="product-grid">
+  <div class="product-card">
+    <img src="sheo_2.avif" alt="Running Shoes" />
+    <h3>Running Shoe</h3>
+    <p>₹2499</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="bags.avif" alt="Travel Backpack" />
+    <h3>Travel Backpack</h3>
+    <p>₹3999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="earbuds.jpg" alt="Wireless Headphones" />
+    <h3>Wireless Headphone</h3>
+    <p>₹2999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="jewellery.jpg" alt="Jewellery" />
+    <h3>Necklace with Earrings</h3>
+    <p>₹10499</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="f7.jpg" alt="POCO F7" />
+    <h3>POCO F7</h3>
+    <p>₹33999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="formal.jpg" alt="Formal Shoes" />
+    <h3>Formal Shoe</h3>
+    <p>₹1499</p>
+    <button>Add to Cart</button>
+  </div>
+
+  <!-- Example more products -->
+  <div class="product-card">
+    <img src="smartwatchs.jpg" alt="Smart Watch" />
+    <h3>Smart Watch</h3>
+    <p>₹4999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="dslr.jpg" alt="DSLR Camera" />
+    <h3> SONY DSLR Camera</h3>
+    <p>₹1,49,999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="perfume.jpg" alt="Perfume" />
+    <h3>Luxury Perfume</h3>
+    <p>₹29,999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="tab.webp" alt="Tablet" />
+    <h3>ipad pro</h3>
+    <p>₹1,69,999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="plain tshirt.webp" alt="T-Shirt" />
+    <h3>Plain T-Shirt</h3>
+    <p>₹499</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="printed.jpg" alt="Printed T-Shirt" />
+    <h3>Printed T-Shirt</h3>
+    <p>₹1,999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="notebook.avif" alt="Notebook" />
+    <h3>Notebook combo</h3>
+    <p>₹499</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="boat.avif" alt="Bluetoth Speaker" />
+    <h3>Boat Bluetooth Speaker</h3>
+    <p>₹1,999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="shirt.webp" alt="Shirt & Pant" />
+    <h3>Formal Shirt & Pant</h3>
+    <p>₹2,499</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="g_cpu.jpg" alt="Gaming CPU" />
+    <h3>Gaming CPU</h3>
+    <p>₹69,999</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="cover.webp" alt="iPhone 14 Cover" />
+    <h3>iPhone Cover</h3>
+    <p>₹499</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="rose.jpg" alt="Rose" />
+    <h3>Artificial Rose </h3>
+    <p>₹299</p>
+    <button>Add to Cart</button>
+  </div>
+  <div class="product-card">
+    <img src="key_mouse.jpg" alt="Gaming Mouse & Keyboard " />
+    <h3>Gaming Mouse & Keyboard</h3>
+    <p>₹3,999</p>
+    <button>Add to Cart</button>
+  </div>
+</div>
+
+
+</body>
+</html>
